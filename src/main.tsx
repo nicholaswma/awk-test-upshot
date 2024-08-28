@@ -19,6 +19,6 @@ createRoot(document.getElementById("root")!).render(
       }}
     >
       <App />
-    </ArweaveWalletKit>{" "}
+    </ArweaveWalletKit>
   </StrictMode>
 );
