@@ -15,8 +15,9 @@ createRoot(document.getElementById("root")!).render(
           "DISPATCH",
           "SIGN_TRANSACTION",
         ],
-        ensurePermissions: true,
+        ensurePermissions: false,
       }}
+      theme={{ radius: "minimal" }}
     >
       <App />
     </ArweaveWalletKit>
