@@ -4,9 +4,8 @@ export const DEFAULT_GATEWAY = {
     protocol: 'https',
 };
 
-// export const CU_URL = undefined;
-export const CU_URL = 'http://localhost:6363';
-// export const CU_URL = 'http://192.9.150.152:4040';
+export const CU_URL = undefined;
+// export const CU_URL = 'http://localhost:6363';
 
 export const isValidAddress = (addr: string) =>
     /^[a-zA-Z0-9_-]{43}$/.test(addr);

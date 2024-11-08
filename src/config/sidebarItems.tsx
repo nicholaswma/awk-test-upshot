@@ -4,10 +4,7 @@ import { SendAOToken } from '../components/SendAOToken';
 import { SendAOMessage } from '../components/SendAOMessage';
 import { DryRunAOMessage } from '../components/DryRunAOMessage';
 import { BatchTest } from '../components/BatchTest';
-// import { BoltTest } from '../components/BoltTest';
 // import { ArIOTest } from '../components/ArIOTest';
-// import { LlamaTest } from '../components/LlamaTest';
-// import { LlamaTestSimple } from '../components/LlamaTestSimple';
 import { GraphQLTest } from '../components/GraphQLTest';
 import { UploadFile } from '../components/UploadFile';
 
@@ -54,24 +51,9 @@ export const sidebarItems: SidebarItemConfig[] = [
         component: <BatchTest />,
     },
     // {
-    //     id: 'bolt',
-    //     title: 'Test Bolt',
-    //     component: <BoltTest />,
-    // },
-    // {
     //     id: 'ario',
     //     title: 'Test ArIO SDK',
     //     component: <ArIOTest />,
-    // },
-    // {
-    //     id: 'llama',
-    //     title: 'Test Llama',
-    //     component: <LlamaTest />,
-    // },
-    // {
-    //     id: 'llama-simple',
-    //     title: 'Test Llama Simple',
-    //     component: <LlamaTestSimple />,
     // },
     {
         id: 'graphql',
