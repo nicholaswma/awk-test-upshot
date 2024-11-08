@@ -1,25 +1,13 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import { ArweaveWalletKit } from "arweave-wallet-kit";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+import { ThemeProvider } from './contexts/ThemeContext.tsx';
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <ArweaveWalletKit
-      config={{
-        permissions: [
-          "ACCESS_ADDRESS",
-          "ACCESS_ALL_ADDRESSES",
-          "ACCESS_PUBLIC_KEY",
-          "DISPATCH",
-          "SIGN_TRANSACTION",
-        ],
-        ensurePermissions: false,
-      }}
-      theme={{ radius: "minimal" }}
-    >
-      <App />
-    </ArweaveWalletKit>
-  </StrictMode>
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+        <ThemeProvider>
+            <App />
+        </ThemeProvider>
+    </StrictMode>
 );
