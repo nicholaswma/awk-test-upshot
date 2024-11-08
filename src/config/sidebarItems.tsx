@@ -1,4 +1,3 @@
-import { UploadFile } from '../components/UploadFile';
 import { SendAR } from '../components/SendAR';
 import { EncryptDecrypt } from '../components/EncryptDecrypt';
 import { SendAOToken } from '../components/SendAOToken';
@@ -10,6 +9,7 @@ import { BatchTest } from '../components/BatchTest';
 // import { LlamaTest } from '../components/LlamaTest';
 // import { LlamaTestSimple } from '../components/LlamaTestSimple';
 import { GraphQLTest } from '../components/GraphQLTest';
+import { UploadFile } from '../components/UploadFile';
 
 export interface SidebarItemConfig {
     id: string;
