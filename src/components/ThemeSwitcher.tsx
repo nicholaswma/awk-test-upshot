@@ -1,5 +1,5 @@
-import { ClassAttributes, ButtonHTMLAttributes } from 'react';
-import { JSX } from 'react/jsx-runtime';
+import { type ClassAttributes, type ButtonHTMLAttributes } from 'react';
+import { type JSX } from 'react/jsx-runtime';
 import { useTheme } from '../hooks/useTheme';
 import { Moon, Sun } from 'lucide-react';
 

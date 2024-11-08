@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { type ChangeEvent, useRef, useState } from 'react';
 import { useApi } from 'arweave-wallet-kit';
 import { useArweave } from '../hooks/useArweave';
 import { Button } from './Button';

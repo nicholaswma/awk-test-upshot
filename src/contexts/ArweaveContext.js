@@ -1,13 +1,11 @@
-import React, { type ReactNode, useMemo } from 'react';
+import { jsx as _jsx } from "react/jsx-runtime";
+import React, { useMemo } from 'react';
 import { ArweaveContext } from '../hooks/useArweave';
 import Arweave from 'arweave';
 import { DEFAULT_GATEWAY } from '../utils/arweaveUtils';
 import { CU_URL } from '../utils/arweaveUtils';
 import { connect } from '@permaweb/aoconnect';
-
-export const ArweaveProvider: React.FC<{ children: ReactNode }> = ({
-    children,
-}) => {
+export const ArweaveProvider = ({ children, }) => {
     const arweave = useMemo(() => Arweave.init(DEFAULT_GATEWAY), []);
     const ao = useMemo(() => {
         let message, dryrun, result;
@@ -16,7 +14,8 @@ export const ArweaveProvider: React.FC<{ children: ReactNode }> = ({
             message = m;
             dryrun = d;
             result = r;
-        } else {
+        }
+        else {
             const { message: m, dryrun: d, result: r } = connect();
             message = m;
             dryrun = d;
@@ -24,15 +23,8 @@ export const ArweaveProvider: React.FC<{ children: ReactNode }> = ({
         }
         return { message, dryrun, result };
     }, []);
-
-    return (
-        <ArweaveContext.Provider
-            value={{
-                arweave,
-                ao,
-            }}
-        >
-            {children}
-        </ArweaveContext.Provider>
-    );
+    return (_jsx(ArweaveContext.Provider, { value: {
+            arweave,
+            ao,
+        }, children: children }));
 };

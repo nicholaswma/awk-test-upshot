@@ -1,5 +1,5 @@
-import { ChangeEvent, useEffect, useState } from 'react';
-import { Message } from '../utils/arweaveUtils';
+import { type ChangeEvent, useEffect, useState } from 'react';
+import { type Message } from '../utils/arweaveUtils';
 import { DEFAULT_AO_TOKEN } from '../utils/constants';
 
 export interface JsonInputProps {
