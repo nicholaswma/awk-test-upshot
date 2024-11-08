@@ -1,12 +1,11 @@
+import { UploadFile } from '../components/UploadFile';
 import { SendAR } from '../components/SendAR';
 import { EncryptDecrypt } from '../components/EncryptDecrypt';
 import { SendAOToken } from '../components/SendAOToken';
 import { SendAOMessage } from '../components/SendAOMessage';
 import { DryRunAOMessage } from '../components/DryRunAOMessage';
 import { BatchTest } from '../components/BatchTest';
-// import { ArIOTest } from '../components/ArIOTest';
 import { GraphQLTest } from '../components/GraphQLTest';
-import { UploadFile } from '../components/UploadFile';
 
 export interface SidebarItemConfig {
     id: string;
@@ -50,11 +49,6 @@ export const sidebarItems: SidebarItemConfig[] = [
         title: 'Test Batch',
         component: <BatchTest />,
     },
-    // {
-    //     id: 'ario',
-    //     title: 'Test ArIO SDK',
-    //     component: <ArIOTest />,
-    // },
     {
         id: 'graphql',
         title: 'Test GraphQL',
