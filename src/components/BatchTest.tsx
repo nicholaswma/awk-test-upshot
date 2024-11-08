@@ -13,6 +13,7 @@ export function BatchTest() {
         });
         console.log(dis);
 
+        //@ts-ignore
         const signedDis = await api.batchSignDataItem(dis);
         console.log(signedDis);
         for (const rawDI of signedDis) {

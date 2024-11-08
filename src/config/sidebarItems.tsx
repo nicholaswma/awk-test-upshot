@@ -5,10 +5,10 @@ import { SendAOToken } from '../components/SendAOToken';
 import { SendAOMessage } from '../components/SendAOMessage';
 import { DryRunAOMessage } from '../components/DryRunAOMessage';
 import { BatchTest } from '../components/BatchTest';
-import { BoltTest } from '../components/BoltTest';
-import { ArIOTest } from '../components/ArIOTest';
-import { LlamaTest } from '../components/LlamaTest';
-import { LlamaTestSimple } from '../components/LlamaTestSimple';
+// import { BoltTest } from '../components/BoltTest';
+// import { ArIOTest } from '../components/ArIOTest';
+// import { LlamaTest } from '../components/LlamaTest';
+// import { LlamaTestSimple } from '../components/LlamaTestSimple';
 import { GraphQLTest } from '../components/GraphQLTest';
 
 export interface SidebarItemConfig {

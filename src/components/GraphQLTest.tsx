@@ -42,9 +42,9 @@ export function GraphQLTest() {
         useState<keyof typeof DEFAULT_GATEWAYS>('ARWEAVE');
     const [customGateway, setCustomGateway] = useState('');
     const [query, setQuery] = useState(DEFAULT_QUERY);
-    const [response, setResponse] = useState<any>(null);
+    const [, setResponse] = useState<any>(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [, setError] = useState<string | null>(null);
 
     // Advanced mode states
     const [isAdvancedMode, setIsAdvancedMode] = useState(false);
@@ -153,6 +153,7 @@ export function GraphQLTest() {
                 return result;
             })
         );
+        console.log(results);
 
         setLoading(false);
     };
