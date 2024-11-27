@@ -1,4 +1,4 @@
-import { useApi } from 'arweave-wallet-kit';
+import { useApi } from '../utils/awk';
 import { useArweave } from '../hooks/useArweave';
 import { useState } from 'react';
 import { Button } from './Button';
@@ -24,6 +24,10 @@ export function EncryptDecrypt() {
         setLoading(true);
         try {
             const data = new TextEncoder().encode(message);
+            if (!api.encrypt) {
+                console.error('Encrypt not implemented');
+                return;
+            }
             const encryptResult = await api.encrypt(data, {
                 name: algorithm,
             });
@@ -56,6 +60,10 @@ export function EncryptDecrypt() {
         setLoading(true);
         try {
             const data = b64ToUint8Array(encryptedMsg);
+            if (!api.decrypt) {
+                console.error('Decrypt not implemented');
+                return;
+            }
             const decryptResult = await api.decrypt(data, { name: algorithm });
             setDecryptedMsg(String.fromCharCode(...decryptResult));
         } catch (err) {

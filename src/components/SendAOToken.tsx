@@ -1,4 +1,3 @@
-import { useApi } from 'arweave-wallet-kit';
 import { useArweave } from '../hooks/useArweave';
 import { useState } from 'react';
 import { createMessage, isValidAddress, tag } from '../utils/arweaveUtils';
@@ -7,6 +6,7 @@ import { Input } from './Input';
 import { emptyTxResult, TxResult } from './TxResult';
 import { createDataItemSigner } from '@permaweb/aoconnect';
 import { AOTokenInfo } from './AOTokenInfo';
+import { useApi } from '../utils/awk';
 
 export function SendAOToken() {
     const api = useApi();

@@ -1,4 +1,4 @@
-import { useApi } from 'arweave-wallet-kit';
+import { useApi } from '../utils/awk';
 import { Button } from './Button';
 import { DataItem } from 'warp-arbundles';
 
@@ -13,6 +13,7 @@ export function BatchTest() {
         });
         console.log(dis);
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         const signedDis = await api.batchSignDataItem(dis);
         console.log(signedDis);

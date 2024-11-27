@@ -11,10 +11,15 @@
     },
     "dependencies": {
         "@ar.io/sdk": "^2.3.2",
+        "@arweave-wallet-kit/arconnect-strategy": "link:../../beta/arweave-wallet-kit-mono-repo/strategies/arconnect",
+        "@arweave-wallet-kit/browser-wallet-strategy": "link:../../beta/arweave-wallet-kit-mono-repo/strategies/browser-wallet",
+        "@arweave-wallet-kit/core": "link:../../beta/arweave-wallet-kit-mono-repo/packages/wallet-kit-core",
+        "@arweave-wallet-kit/othent-strategy": "link:../../beta/arweave-wallet-kit-mono-repo/strategies/othent",
+        "@arweave-wallet-kit/react": "link:../../beta/arweave-wallet-kit-mono-repo/frameworks/react",
+        "@arweave-wallet-kit/styles": "link:../../beta/arweave-wallet-kit-mono-repo/packages/wallet-kit-styles",
         "@heroicons/react": "^2.1.5",
         "@permaweb/aoconnect": "^0.0.59",
         "arweave": "^1.15.1",
-        "arweave-wallet-kit": "^1.0.7",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "warp-arbundles": "^1.0.4"
