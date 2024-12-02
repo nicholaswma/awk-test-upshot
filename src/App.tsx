@@ -1,7 +1,7 @@
 import {
     ArConnectStrategy,
     ArweaveWalletKit,
-    BrowserWalletStrategy,
+    // BrowserWalletStrategy,
     OthentStrategy,
 } from './utils/awk';
 import Main from './components/Main';
@@ -23,12 +23,13 @@ function App() {
                         'DISPATCH',
                         'ENCRYPT',
                         'SIGN_TRANSACTION',
+                        // 'ACCESS_TOKENS',
                     ],
                     ensurePermissions: true,
                     strategies: [
-                        new ArConnectStrategy(),
                         new OthentStrategy(),
-                        new BrowserWalletStrategy(),
+                        new ArConnectStrategy(),
+                        // new BrowserWalletStrategy(),
                     ],
                 }}
                 theme={{ radius: 'minimal', displayTheme: theme }}
