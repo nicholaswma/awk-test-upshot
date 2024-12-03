@@ -1,4 +1,4 @@
-import { UploadFile } from '../components/ARUploadFile';
+import { UploadFile } from '../components/UploadFile';
 import { SendAR } from '../components/SendAR';
 import { EncryptDecrypt } from '../components/EncryptDecrypt';
 import { SendAOToken } from '../components/SendAOToken';
