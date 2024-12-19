@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
 
+// https://arweave.net/graphql
+// https://arweave-search.goldsky.com/graphql
+// https://ar-io.dev/graphql
+
 const DEFAULT_GATEWAYS = {
     ARWEAVE: 'https://arweave.net/graphql',
     GOLDSKY: 'https://arweave-search.goldsky.com/graphql',
@@ -11,6 +15,7 @@ const DEFAULT_GATEWAYS = {
 interface GatewayResult {
     gateway: string;
     status: 'pending' | 'success' | 'error' | 'timeout';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     response?: any;
     error?: string;
     time?: number;
@@ -42,15 +47,19 @@ export function GraphQLTest() {
         useState<keyof typeof DEFAULT_GATEWAYS>('ARWEAVE');
     const [customGateway, setCustomGateway] = useState('');
     const [query, setQuery] = useState(DEFAULT_QUERY);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [, setResponse] = useState<any>(null);
     const [loading, setLoading] = useState(false);
     const [, setError] = useState<string | null>(null);
 
+    const defGW = `${DEFAULT_GATEWAYS.AR_IO}\n${DEFAULT_GATEWAYS.ARWEAVE}\n${DEFAULT_GATEWAYS.GOLDSKY}`;
     // Advanced mode states
-    const [isAdvancedMode, setIsAdvancedMode] = useState(false);
-    const [gatewayList, setGatewayList] = useState('');
+    // const [isAdvancedMode, setIsAdvancedMode] = useState(true);
+    const [gatewayList, setGatewayList] = useState(defGW);
     const [timeout, setTimeout] = useState(DEFAULT_TIMEOUT.toString());
     const [multiResults, setMultiResults] = useState<GatewayResult[]>([]);
+
+    const isAdvancedMode = true;
 
     const executeQuery = async (
         gateway: string,
@@ -79,6 +88,7 @@ export function GraphQLTest() {
                 return {
                     gateway,
                     status: 'error',
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     error: data.errors.map((e: any) => e.message).join('\n'),
                     time,
                 };
@@ -114,8 +124,10 @@ export function GraphQLTest() {
         const result = await executeQuery(gateway, parseInt(timeout));
 
         if (result.status === 'success') {
+            console.log(result);
             setResponse(result.response);
         } else {
+            console.log(result);
             setError(result.error ?? 'Unknown error');
         }
 
@@ -126,11 +138,14 @@ export function GraphQLTest() {
         setLoading(true);
         setMultiResults([]);
 
+        const gateways = !gatewayList.length
+            ? Object.values(DEFAULT_GATEWAYS)
+            : gatewayList.split('\n').filter((g) => g.trim());
         // Combine default and custom gateways
-        const gateways = [
-            ...Object.values(DEFAULT_GATEWAYS),
-            ...gatewayList.split('\n').filter((g) => g.trim()),
-        ];
+        // const gateways = [
+        //     ...Object.values(DEFAULT_GATEWAYS),
+        //     ...gatewayList.split('\n').filter((g) => g.trim()),
+        // ];
 
         // Initialize results
         setMultiResults(
@@ -161,7 +176,7 @@ export function GraphQLTest() {
     return (
         <div className="flex w-full flex-col gap-4">
             {/* Advanced Mode Toggle */}
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
                 <label className="flex items-center gap-2">
                     <input
                         type="checkbox"
@@ -171,7 +186,7 @@ export function GraphQLTest() {
                     />
                     <span className="text-sm font-medium">Advanced Mode</span>
                 </label>
-            </div>
+            </div> */}
 
             {!isAdvancedMode ? (
                 /* Single Gateway Selection */

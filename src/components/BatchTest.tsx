@@ -1,9 +1,20 @@
-import { useApi } from 'arweave-wallet-kit';
+import { useApi } from '../utils/awk';
 import { Button } from './Button';
 import { DataItem } from 'warp-arbundles';
+import TagsDisplay from './TagsDisplay';
 
 export function BatchTest() {
     const api = useApi();
+
+    const tagsExample = [
+        { name: 'Content-Type', value: 'image/png' },
+        { name: 'Creator', value: '3-wJvHy394n92g' },
+        { name: 'Title', value: 'soggystarrynight2' },
+        { name: 'Description', value: "ade mc @ ade's press 2023-4" },
+        { name: 'Implements', value: 'ANS-110' },
+        { name: 'Date-Created', value: '1719048914300' },
+        { name: 'Action', value: 'Add-Uploaded-Asset' },
+    ];
 
     const test = async () => {
         if (!api) return;
@@ -13,6 +24,7 @@ export function BatchTest() {
         });
         console.log(dis);
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         const signedDis = await api.batchSignDataItem(dis);
         console.log(signedDis);
@@ -31,10 +43,12 @@ export function BatchTest() {
 
     return (
         <div className="justify-betweengap-2 flex w-full flex-col items-start">
-            <div className="-mt-2 flex w-full items-center justify-between space-y-2">
+            <div className="-mt-2 flex w-full flex-col items-center justify-between space-y-2">
                 <Button onClick={() => test()} disabled={!api}>
                     Test Batch Sign
                 </Button>
+                <div className="text-lg font-semibold">Tags Example:</div>
+                <TagsDisplay tags={tagsExample} />
             </div>
         </div>
     );

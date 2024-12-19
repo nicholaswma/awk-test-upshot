@@ -1,5 +1,5 @@
 import { type ChangeEvent, useRef, useState } from 'react';
-import { useApi } from 'arweave-wallet-kit';
+import { useApi } from '../utils/awk';
 import { useArweave } from '../hooks/useArweave';
 import { Button } from './Button';
 import { TxResult, emptyTxResult } from './TxResult';

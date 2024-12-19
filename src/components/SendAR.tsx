@@ -1,4 +1,4 @@
-import { useApi } from 'arweave-wallet-kit';
+import { useApi } from '../utils/awk';
 import { useArweave } from '../hooks/useArweave';
 import { useState } from 'react';
 import { isValidAddress } from '../utils/arweaveUtils';

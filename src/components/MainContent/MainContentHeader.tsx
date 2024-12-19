@@ -1,10 +1,12 @@
-import { ConnectButton } from 'arweave-wallet-kit';
+import { ConnectButton } from '../../utils/awk';
 
 interface MainContentHeaderProps {
     selectedItemTitle: string;
 }
 
-export function MainContentHeader({ selectedItemTitle }: MainContentHeaderProps) {
+export function MainContentHeader({
+    selectedItemTitle,
+}: MainContentHeaderProps) {
     return (
         <div className="border-b border-slate-200 p-4 dark:border-slate-800">
             <div className="flex items-center justify-between">
@@ -17,4 +19,4 @@ export function MainContentHeader({ selectedItemTitle }: MainContentHeaderProps)
             </div>
         </div>
     );
-} 
+}

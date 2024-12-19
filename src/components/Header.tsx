@@ -1,4 +1,4 @@
-import { ConnectButton } from 'arweave-wallet-kit';
+import { ConnectButton } from '../utils/awk';
 
 export function Header() {
     return (
