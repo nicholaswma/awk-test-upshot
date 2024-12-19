@@ -12,7 +12,7 @@ function Main() {
     };
 
     return (
-        <div className="flex h-screen text-slate-950 dark:text-slate-50">
+        <div className="flex max-h-max min-h-screen text-slate-950 dark:text-slate-50">
             <Sidebar
                 connected={connected}
                 selectedItem={selectedItem}

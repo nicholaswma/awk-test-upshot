@@ -12,23 +12,23 @@ importers:
         specifier: ^2.5.3
         version: 2.5.3
       '@arweave-wallet-kit/arconnect-strategy':
-        specifier: file:arweave-wallet-kit-arconnect-strategy-0.0.1-beta.71.tgz
-        version: file:arweave-wallet-kit-arconnect-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/browser-wallet-strategy@file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz))(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)
+        specifier: ^0.1.0
+        version: 0.1.0(@arweave-wallet-kit/browser-wallet-strategy@0.1.0(@arweave-wallet-kit/core@0.1.0))(@arweave-wallet-kit/core@0.1.0)
       '@arweave-wallet-kit/browser-wallet-strategy':
-        specifier: file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz
-        version: file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)
+        specifier: ^0.1.0
+        version: 0.1.0(@arweave-wallet-kit/core@0.1.0)
       '@arweave-wallet-kit/core':
-        specifier: file:arweave-wallet-kit-core-0.0.1-beta.71.tgz
-        version: file:arweave-wallet-kit-core-0.0.1-beta.71.tgz
+        specifier: ^0.1.0
+        version: 0.1.0
       '@arweave-wallet-kit/othent-strategy':
-        specifier: file:arweave-wallet-kit-othent-strategy-0.0.1-beta.72.tgz
-        version: file:arweave-wallet-kit-othent-strategy-0.0.1-beta.72.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)(arweave@1.15.5)(axios@1.7.8)(warp-arbundles@1.0.4)
+        specifier: ^0.1.0
+        version: 0.1.0(@arweave-wallet-kit/core@0.1.0)(arweave@1.15.5)(axios@1.7.8)(warp-arbundles@1.0.4)
       '@arweave-wallet-kit/react':
-        specifier: file:arweave-wallet-kit-react-0.0.1-beta.71.tgz
-        version: file:arweave-wallet-kit-react-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)(@arweave-wallet-kit/styles@file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
+        specifier: ^0.1.0
+        version: 0.1.0(@arweave-wallet-kit/core@0.1.0)(@arweave-wallet-kit/styles@0.1.0)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
       '@arweave-wallet-kit/styles':
-        specifier: file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz
-        version: file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz
+        specifier: ^0.1.0
+        version: 0.1.0
       '@heroicons/react':
         specifier: ^2.2.0
         version: 2.2.0(react@18.3.1)
@@ -129,42 +129,36 @@ packages:
     resolution: {integrity: sha512-6uHEQx8OrrMYmZBaNqKngh8B4BSUYlVd18umra3ZSb9rEU9e8LY6jBKb1KWnKO+Flp3Cvn90u77H6Wky/xUErg==}
     engines: {node: '>=18'}
 
-  '@arweave-wallet-kit/arconnect-strategy@file:arweave-wallet-kit-arconnect-strategy-0.0.1-beta.71.tgz':
-    resolution: {integrity: sha512-uBxUhYInnRo29s1RNKiJY/kXvoE8BRnggLFi+Sx5NF5VNQY7BT6y5bTDPBdbFoI+VWLLvEMprYulD8EdzimiGA==, tarball: file:arweave-wallet-kit-arconnect-strategy-0.0.1-beta.71.tgz}
-    version: 0.0.1-beta.71
+  '@arweave-wallet-kit/arconnect-strategy@0.1.0':
+    resolution: {integrity: sha512-wxFx1pu2P//Ans+FOvvyvFsgUZOdTgFzbHKkp+nEtN0eCIlkCXnZqDzeV0u9fLpiDEHpqLyWu1TQYB98OcKBtg==}
     peerDependencies:
-      '@arweave-wallet-kit/browser-wallet-strategy': '>= 0.0.1-beta.1 < 2'
-      '@arweave-wallet-kit/core': '>= 0.0.1-beta.1 < 2'
+      '@arweave-wallet-kit/browser-wallet-strategy': '>= 0.1.0 < 2'
+      '@arweave-wallet-kit/core': '>= 0.1.0 < 2'
 
-  '@arweave-wallet-kit/browser-wallet-strategy@file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz':
-    resolution: {integrity: sha512-KQRuZU9//MTg03BsionFA6BQQ9raDT6T1NbHjiUN/wLwePUCzBmECTnkhg6nBFBNsgp0zD3kVhEPQOr7LAYO5g==, tarball: file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz}
-    version: 0.0.1-beta.71
+  '@arweave-wallet-kit/browser-wallet-strategy@0.1.0':
+    resolution: {integrity: sha512-VXQETWLU9OVUZbnWM0hh0UxEvZoCriSpQeV4aBUa2e8TGT6bZZb8fF108pOHArPJQut09mBsInUwUylbaKKcug==}
     peerDependencies:
-      '@arweave-wallet-kit/core': '>= 0.0.1-beta.1 < 2'
+      '@arweave-wallet-kit/core': '>= 0.1.0 < 2'
 
-  '@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz':
-    resolution: {integrity: sha512-VnzbQK/6/CwigzIfOH3bs2fa0YjdiA4W3CLYomxkxGpyVJSIxnn0+dUQe/bwU68i3JAEjj3zzTDdZ7fhkBcEKw==, tarball: file:arweave-wallet-kit-core-0.0.1-beta.71.tgz}
-    version: 0.0.1-beta.71
+  '@arweave-wallet-kit/core@0.1.0':
+    resolution: {integrity: sha512-B7SSYHmkzJPR9v+lNVcGTERQXCtkzfDz6BvXHta/xs2qZlNcntQgCMy0PfHLm84/tfl4NHzDx6v28HYfFN43Rw==}
 
-  '@arweave-wallet-kit/othent-strategy@file:arweave-wallet-kit-othent-strategy-0.0.1-beta.72.tgz':
-    resolution: {integrity: sha512-RNZhOKJRAdvo+U22qwvSzaDEpplYiVB6rtqFd2z8lCbzxxP3V+bwvjmmwuvGJ/eaNfjGWcGLX8bgkjc1x5eroA==, tarball: file:arweave-wallet-kit-othent-strategy-0.0.1-beta.72.tgz}
-    version: 0.0.1-beta.72
+  '@arweave-wallet-kit/othent-strategy@0.1.0':
+    resolution: {integrity: sha512-qAs3Nyi6UthMwrSuEGoHl+y0x260Ml4RJ+PRObbsp+nVlL6PwwI4zZcddijjP35s0MiJJFGhRL4O8PjRDUNAMQ==}
     peerDependencies:
-      '@arweave-wallet-kit/core': '>= 0.0.1-beta.1 < 2'
+      '@arweave-wallet-kit/core': '>= 0.1.0 < 2'
 
-  '@arweave-wallet-kit/react@file:arweave-wallet-kit-react-0.0.1-beta.71.tgz':
-    resolution: {integrity: sha512-Tf8FFEx2F9RmGvYnfJ7W+AeLd0FGU1dIULTjAmwOh6NHa0xoieSQVC5m49nvnE/bpzoqN6OLnZSFSUQecetSQA==, tarball: file:arweave-wallet-kit-react-0.0.1-beta.71.tgz}
-    version: 0.0.1-beta.71
+  '@arweave-wallet-kit/react@0.1.0':
+    resolution: {integrity: sha512-DJ4iI1m5ZDLRVYtfzkm+8iIw4QNHWOd/cvzO5ijExN664j8FNWbvn0T5GcvCV8BBPH/OHyuTpRCA91U+YkVu3w==}
     peerDependencies:
-      '@arweave-wallet-kit/core': '>= 0.0.1-beta.2 < 2'
-      '@arweave-wallet-kit/styles': '>= 0.0.1-beta.1 < 2'
+      '@arweave-wallet-kit/core': '>= 0.1.0 < 2'
+      '@arweave-wallet-kit/styles': '>= 0.1.0 < 2'
       arweave: '>= 1.12.2 < 2'
       react: ^16.8.0 || 17.x || 18.x
       react-dom: ^16.8.0 || 17.x || 18.x
 
-  '@arweave-wallet-kit/styles@file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz':
-    resolution: {integrity: sha512-t9hvFFv/i/jpw7CfJ8hIIs6txTn+bDex1bG05xiMybW/WbVmtF2HQwYptA8yikDlmipXXIrzfyRzlRhx7Bxb5w==, tarball: file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz}
-    version: 0.0.1-beta.71
+  '@arweave-wallet-kit/styles@0.1.0':
+    resolution: {integrity: sha512-YN1Itce0ymnFs0SnZ5zBSfPTbKsUf6ET4xHpOnIrgt9X9DaHjG6uHiNG7JhepWotxUpo2N620Dy/+3shpCopfw==}
 
   '@auth0/auth0-spa-js@2.1.3':
     resolution: {integrity: sha512-NMTBNuuG4g3rame1aCnNS5qFYIzsTUV5qTFPRfTyYFS1feS6jsCBR+eTq9YkxCp1yuoM2UIcjunPaoPl77U9xQ==}
@@ -203,10 +197,6 @@ packages:
     resolution: {integrity: sha512-kSMlyUVdWe25rEsRGviIgOWnoT/nfABVWlqt9N19/dIPWViAOW2s9wznP5tURbs/IDuNk4gPy3YdYRgH3uxhBw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-simple-access@7.25.9':
-    resolution: {integrity: sha512-c6WHXuiaRsJTyHYLJV75t9IqsmTbItYfdj99PnzYGQZkYKvan5/2jKJ7gu31J3/BJ/A18grImSPModuyG/Eo0Q==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-string-parser@7.25.9':
     resolution: {integrity: sha512-4A/SCr/2KLd5jrtOMFzaKjVtAei3+2r/NChoBNoZ3EyP/+GlhoaEGoWOZUmFmoITP7zOJyHIMm+DYRd8o3PvHA==}
     engines: {node: '>=6.9.0'}
@@ -228,8 +218,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/plugin-transform-modules-commonjs@7.25.9':
-    resolution: {integrity: sha512-dwh2Ol1jWwL2MgkCzUSOvfmKElqQcuswAZypBSUsScMXvgdT8Ekq5YA6TtqpTVWH+4903NmboMuH1o9i8Rxlyg==}
+  '@babel/plugin-transform-modules-commonjs@7.26.3':
+    resolution: {integrity: sha512-MgR55l4q9KddUDITEzEFYn5ZsGDXMSsU9E+kh7fjRXTIC3RHqfCo8RPRbyReYJh44HQ/yomFkqbOFohXvDCiIQ==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -543,8 +533,8 @@ packages:
     resolution: {integrity: sha512-i2vC0DI7bdfEhQszqASTw0KVvbB7HsO2CwTBod423NawAu7FWi+gVVa7NLfXVNGJaZZayFfci2Hu+om/HmyEjQ==}
     engines: {node: '>=14.0.0'}
 
-  '@grpc/grpc-js@1.12.2':
-    resolution: {integrity: sha512-bgxdZmgTrJZX50OjyVwz3+mNEnCTNkh3cIqGPWVNeW9jX6bn1ZkU80uPd+67/ZpIJIjRQ9qaHCjhavyoWYxumg==}
+  '@grpc/grpc-js@1.12.4':
+    resolution: {integrity: sha512-NBhrxEWnFh0FxeA0d//YP95lRFsSx2TNLEUQg4/W+5f/BMxcCjgOOIT24iD+ZB/tZw057j44DaIxja7w4XMrhg==}
     engines: {node: '>=12.10.0'}
 
   '@grpc/proto-loader@0.7.13':
@@ -1047,8 +1037,8 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
 
-  agent-base@7.1.1:
-    resolution: {integrity: sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==}
+  agent-base@7.1.3:
+    resolution: {integrity: sha512-jRR5wdylq8CkOe6hei19GGZnxM6rBGwFl3Bg0YItGDimvjGtAvdZk4Pu6Cl4u4Igsws4a1fd1Vq3ezrhn4KmFw==}
     engines: {node: '>= 14'}
 
   ajv-keywords@3.5.2:
@@ -1807,8 +1797,8 @@ packages:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
 
-  https-proxy-agent@7.0.5:
-    resolution: {integrity: sha512-1e4Wqeblerz+tMKPIq2EMGiiWW1dIjZOksyHWSUm1rmuvw/how9hBHZ38lAGj5ID4Ik6EdkOw7NmWPy6LAwalw==}
+  https-proxy-agent@7.0.6:
+    resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
     engines: {node: '>= 14'}
 
   human-crypto-keys@0.1.4:
@@ -3058,20 +3048,20 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@arweave-wallet-kit/arconnect-strategy@file:arweave-wallet-kit-arconnect-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/browser-wallet-strategy@file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz))(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)':
+  '@arweave-wallet-kit/arconnect-strategy@0.1.0(@arweave-wallet-kit/browser-wallet-strategy@0.1.0(@arweave-wallet-kit/core@0.1.0))(@arweave-wallet-kit/core@0.1.0)':
     dependencies:
-      '@arweave-wallet-kit/browser-wallet-strategy': file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)
-      '@arweave-wallet-kit/core': file:arweave-wallet-kit-core-0.0.1-beta.71.tgz
+      '@arweave-wallet-kit/browser-wallet-strategy': 0.1.0(@arweave-wallet-kit/core@0.1.0)
+      '@arweave-wallet-kit/core': 0.1.0
 
-  '@arweave-wallet-kit/browser-wallet-strategy@file:arweave-wallet-kit-browser-wallet-strategy-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)':
+  '@arweave-wallet-kit/browser-wallet-strategy@0.1.0(@arweave-wallet-kit/core@0.1.0)':
     dependencies:
-      '@arweave-wallet-kit/core': file:arweave-wallet-kit-core-0.0.1-beta.71.tgz
+      '@arweave-wallet-kit/core': 0.1.0
 
-  '@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz': {}
+  '@arweave-wallet-kit/core@0.1.0': {}
 
-  '@arweave-wallet-kit/othent-strategy@file:arweave-wallet-kit-othent-strategy-0.0.1-beta.72.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)(arweave@1.15.5)(axios@1.7.8)(warp-arbundles@1.0.4)':
+  '@arweave-wallet-kit/othent-strategy@0.1.0(@arweave-wallet-kit/core@0.1.0)(arweave@1.15.5)(axios@1.7.8)(warp-arbundles@1.0.4)':
     dependencies:
-      '@arweave-wallet-kit/core': file:arweave-wallet-kit-core-0.0.1-beta.71.tgz
+      '@arweave-wallet-kit/core': 0.1.0
       '@othent/kms': 2.1.1(arweave@1.15.5)(axios@1.7.8)(warp-arbundles@1.0.4)
       jwt-decode: 4.0.0
     transitivePeerDependencies:
@@ -3081,10 +3071,10 @@ snapshots:
       - supports-color
       - warp-arbundles
 
-  '@arweave-wallet-kit/react@file:arweave-wallet-kit-react-0.0.1-beta.71.tgz(@arweave-wallet-kit/core@file:arweave-wallet-kit-core-0.0.1-beta.71.tgz)(@arweave-wallet-kit/styles@file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)':
+  '@arweave-wallet-kit/react@0.1.0(@arweave-wallet-kit/core@0.1.0)(@arweave-wallet-kit/styles@0.1.0)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)':
     dependencies:
-      '@arweave-wallet-kit/core': file:arweave-wallet-kit-core-0.0.1-beta.71.tgz
-      '@arweave-wallet-kit/styles': file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz
+      '@arweave-wallet-kit/core': 0.1.0
+      '@arweave-wallet-kit/styles': 0.1.0
       '@callstack/react-theme-provider': 3.0.9(react@18.3.1)
       '@iconicicons/react': 1.5.1(react@18.3.1)
       '@linaria/core': 6.2.0
@@ -3099,7 +3089,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@arweave-wallet-kit/styles@file:arweave-wallet-kit-styles-0.0.1-beta.71.tgz': {}
+  '@arweave-wallet-kit/styles@0.1.0': {}
 
   '@auth0/auth0-spa-js@2.1.3': {}
 
@@ -3165,13 +3155,6 @@ snapshots:
 
   '@babel/helper-plugin-utils@7.25.9': {}
 
-  '@babel/helper-simple-access@7.25.9':
-    dependencies:
-      '@babel/traverse': 7.25.9
-      '@babel/types': 7.26.0
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/helper-string-parser@7.25.9': {}
 
   '@babel/helper-validator-identifier@7.25.9': {}
@@ -3187,12 +3170,11 @@ snapshots:
     dependencies:
       '@babel/types': 7.26.0
 
-  '@babel/plugin-transform-modules-commonjs@7.25.9(@babel/core@7.26.0)':
+  '@babel/plugin-transform-modules-commonjs@7.26.3(@babel/core@7.26.0)':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/helper-module-transforms': 7.26.0(@babel/core@7.26.0)
       '@babel/helper-plugin-utils': 7.25.9
-      '@babel/helper-simple-access': 7.25.9
     transitivePeerDependencies:
       - supports-color
 
@@ -3614,7 +3596,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@grpc/grpc-js@1.12.2':
+  '@grpc/grpc-js@1.12.4':
     dependencies:
       '@grpc/proto-loader': 0.7.13
       '@js-sdsl/ordered-map': 4.4.2
@@ -4188,7 +4170,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/generator': 7.26.2
       '@babel/helper-module-imports': 7.25.9
-      '@babel/plugin-transform-modules-commonjs': 7.25.9(@babel/core@7.26.0)
+      '@babel/plugin-transform-modules-commonjs': 7.26.3(@babel/core@7.26.0)
       '@babel/template': 7.25.9
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
@@ -4226,11 +4208,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  agent-base@7.1.1:
-    dependencies:
-      debug: 4.3.7
-    transitivePeerDependencies:
-      - supports-color
+  agent-base@7.1.3: {}
 
   ajv-keywords@3.5.2(ajv@6.12.6):
     dependencies:
@@ -4997,7 +4975,7 @@ snapshots:
   gaxios@6.7.1:
     dependencies:
       extend: 3.0.2
-      https-proxy-agent: 7.0.5
+      https-proxy-agent: 7.0.6
       is-stream: 2.0.1
       node-fetch: 2.7.0
       uuid: 9.0.1
@@ -5064,7 +5042,7 @@ snapshots:
 
   google-gax@4.4.1:
     dependencies:
-      '@grpc/grpc-js': 1.12.2
+      '@grpc/grpc-js': 1.12.4
       '@grpc/proto-loader': 0.7.13
       '@types/long': 4.0.2
       abort-controller: 3.0.0
@@ -5167,9 +5145,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@7.0.5:
+  https-proxy-agent@7.0.6:
     dependencies:
-      agent-base: 7.1.1
+      agent-base: 7.1.3
       debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
