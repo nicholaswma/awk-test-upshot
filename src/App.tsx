@@ -1,8 +1,10 @@
 import {
-    ArConnectStrategy,
+    // ArConnectStrategy,
     ArweaveWalletKit,
     // BrowserWalletStrategy,
     OthentStrategy,
+    WanderStrategy,
+    WebWalletStrategy,
 } from './utils/awk';
 import Main from './components/Main';
 import { ArweaveProvider } from './contexts/ArweaveContext';
@@ -27,8 +29,10 @@ function App() {
                     ],
                     ensurePermissions: true,
                     strategies: [
+                        new WanderStrategy(),
+                        new WebWalletStrategy(),
                         new OthentStrategy(),
-                        new ArConnectStrategy(),
+                        // new ArConnectStrategy(),
                         // new BrowserWalletStrategy(),
                     ],
                 }}
