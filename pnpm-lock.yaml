@@ -30,8 +30,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1
       '@arweave-wallet-kit/wander-strategy':
-        specifier: ^0.1.1
-        version: 0.1.1(@arweave-wallet-kit/browser-wallet-strategy@0.1.1(@arweave-wallet-kit/core@0.1.1))(@arweave-wallet-kit/core@0.1.1)
+        specifier: ^0.1.2
+        version: 0.1.2(@arweave-wallet-kit/browser-wallet-strategy@0.1.1(@arweave-wallet-kit/core@0.1.1))(@arweave-wallet-kit/core@0.1.1)
       '@arweave-wallet-kit/webwallet-strategy':
         specifier: 0.0.1-beta.4
         version: 0.0.1-beta.4(@arweave-wallet-kit/browser-wallet-strategy@0.1.1(@arweave-wallet-kit/core@0.1.1))(@arweave-wallet-kit/core@0.1.1)(arweave-wallet-connector@1.0.2)
@@ -166,8 +166,8 @@ packages:
   '@arweave-wallet-kit/styles@0.1.1':
     resolution: {integrity: sha512-O8kAKaNGhvL6Rs0lnQBhw+1Bm8HVGLSIK5/yb+1RXILnkyGQ6VFuYVV2dL2yNVldiJianEzkjvmEzfotf/g9sw==}
 
-  '@arweave-wallet-kit/wander-strategy@0.1.1':
-    resolution: {integrity: sha512-xWOb/EZGx+badhYnozdcm8ndkfsw/0L5EX58iL1J/oCtNd3mShClKvEB6UVEZI9NTzvUy5cvUBqodHzpYHH0lQ==}
+  '@arweave-wallet-kit/wander-strategy@0.1.2':
+    resolution: {integrity: sha512-EGNDgJ6rPeOTgR1IlK4k1f8ZsNLlQfV9IV4BLEP8YpyL7btSEY7Zm37fPoZ4I76sbsPiBjzTrVEbG+jU8Y84Dw==}
     peerDependencies:
       '@arweave-wallet-kit/browser-wallet-strategy': 0.1.1
       '@arweave-wallet-kit/core': 0.1.1
@@ -3142,7 +3142,7 @@ snapshots:
 
   '@arweave-wallet-kit/styles@0.1.1': {}
 
-  '@arweave-wallet-kit/wander-strategy@0.1.1(@arweave-wallet-kit/browser-wallet-strategy@0.1.1(@arweave-wallet-kit/core@0.1.1))(@arweave-wallet-kit/core@0.1.1)':
+  '@arweave-wallet-kit/wander-strategy@0.1.2(@arweave-wallet-kit/browser-wallet-strategy@0.1.1(@arweave-wallet-kit/core@0.1.1))(@arweave-wallet-kit/core@0.1.1)':
     dependencies:
       '@arweave-wallet-kit/browser-wallet-strategy': 0.1.1(@arweave-wallet-kit/core@0.1.1)
       '@arweave-wallet-kit/core': 0.1.1
