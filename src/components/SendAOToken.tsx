@@ -7,13 +7,14 @@ import { emptyTxResult, TxResult } from './TxResult';
 import { createDataItemSigner } from '@permaweb/aoconnect';
 import { AOTokenInfo } from './AOTokenInfo';
 import { useApi } from '../utils/awk';
+import { DEFAULT_AO_TOKEN } from '../utils/constants';
 
 export function SendAOToken() {
     const api = useApi();
     const { arweave, ao } = useArweave();
     const [loading, setLoading] = useState(false);
     const [quantity, setQuantity] = useState('0');
-    const [process, setProcess] = useState('');
+    const [process, setProcess] = useState(DEFAULT_AO_TOKEN);
     const [target, setTarget] = useState('');
     const [txResult, setTxResult] = useState(emptyTxResult);
 
