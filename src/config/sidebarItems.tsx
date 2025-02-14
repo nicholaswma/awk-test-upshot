@@ -6,6 +6,7 @@ import { SendAOMessage } from '../components/SendAOMessage';
 import { DryRunAOMessage } from '../components/DryRunAOMessage';
 import { BatchTest } from '../components/BatchTest';
 import { GraphQLTest } from '../components/GraphQLTest';
+import { SignMessage } from '../components/SignMessage';
 
 export interface SidebarItemConfig {
     id: string;
@@ -28,6 +29,11 @@ export const sidebarItems: SidebarItemConfig[] = [
         id: 'encrypt',
         title: 'Encrypt / Decrypt',
         component: <EncryptDecrypt />,
+    },
+    {
+        id: 'signMessage',
+        title: 'Sign Message',
+        component: <SignMessage />,
     },
     {
         id: 'send-ao-token',

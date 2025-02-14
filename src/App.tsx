@@ -25,6 +25,7 @@ function App() {
                         'DISPATCH',
                         'ENCRYPT',
                         'SIGN_TRANSACTION',
+                        'SIGNATURE',
                         // 'ACCESS_TOKENS',
                     ],
                     ensurePermissions: true,
