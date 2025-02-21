@@ -13,8 +13,10 @@ export function MainContentHeader({
                 <h2 className="text-xl font-semibold">{selectedItemTitle}</h2>
                 <ConnectButton
                     showBalance={false}
-                    showProfilePicture={false}
-                    useAns={false}
+                    // showProfilePicture={true}
+                    accent="#A273F2"
+                    // useAns={false}
+                    // useArNS={true}
                 />
             </div>
         </div>
