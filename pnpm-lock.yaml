@@ -24,8 +24,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1(@arweave-wallet-kit/core@0.1.1)(arweave@1.15.5)(axios@1.7.8)(warp-arbundles@1.0.4)
       '@arweave-wallet-kit/react':
-        specifier: ^0.1.1
-        version: 0.1.1(@arweave-wallet-kit/core@0.1.1)(@arweave-wallet-kit/styles@0.1.1)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
+        specifier: ^0.2.0
+        version: 0.2.0(@arweave-wallet-kit/core@0.1.1)(@arweave-wallet-kit/styles@0.1.1)(@permaweb/aoconnect@0.0.59)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
       '@arweave-wallet-kit/styles':
         specifier: ^0.1.1
         version: 0.1.1
@@ -154,14 +154,15 @@ packages:
     peerDependencies:
       '@arweave-wallet-kit/core': 0.1.1
 
-  '@arweave-wallet-kit/react@0.1.1':
-    resolution: {integrity: sha512-3QRRb1BUt5VIKCpqvedJQDOpGTOgONv/NvOPvPbxv1AEIoRcSc8vz0tl3RRF5PixwSFpqsN8zRFJOiK+Bud5rQ==}
+  '@arweave-wallet-kit/react@0.2.0':
+    resolution: {integrity: sha512-6YnNIfMneLP6ZV87pAn5cIyJGuPsWT906jMvBec+5nCfloEQLCyg8WI1iuC9iLbgF5Ghzz7UJpZA2L4plGTY+Q==}
     peerDependencies:
       '@arweave-wallet-kit/core': 0.1.1
       '@arweave-wallet-kit/styles': 0.1.1
+      '@permaweb/aoconnect': ^0.0.65
       arweave: '>= 1.12.2 < 2'
-      react: ^0.1.0
-      react-dom: ^16.8.0 || 17.x || 18.x
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   '@arweave-wallet-kit/styles@0.1.1':
     resolution: {integrity: sha512-O8kAKaNGhvL6Rs0lnQBhw+1Bm8HVGLSIK5/yb+1RXILnkyGQ6VFuYVV2dL2yNVldiJianEzkjvmEzfotf/g9sw==}
@@ -3122,7 +3123,7 @@ snapshots:
       - supports-color
       - warp-arbundles
 
-  '@arweave-wallet-kit/react@0.1.1(@arweave-wallet-kit/core@0.1.1)(@arweave-wallet-kit/styles@0.1.1)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)':
+  '@arweave-wallet-kit/react@0.2.0(@arweave-wallet-kit/core@0.1.1)(@arweave-wallet-kit/styles@0.1.1)(@permaweb/aoconnect@0.0.59)(arweave@1.15.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2)':
     dependencies:
       '@arweave-wallet-kit/core': 0.1.1
       '@arweave-wallet-kit/styles': 0.1.1
@@ -3130,6 +3131,7 @@ snapshots:
       '@iconicicons/react': 1.5.1(react@18.3.1)
       '@linaria/core': 6.2.0
       '@linaria/react': 6.2.1(react@18.3.1)
+      '@permaweb/aoconnect': 0.0.59
       '@wyw-in-js/babel-preset': 0.4.1(typescript@5.7.2)
       arweave: 1.15.5
       framer-motion: 8.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
