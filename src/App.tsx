@@ -8,10 +8,10 @@ import {
 } from './utils/awk';
 import Main from './components/Main';
 import { ArweaveProvider } from './contexts/ArweaveContext';
-// import { useTheme } from './hooks/useTheme';
+import { useTheme } from './hooks/useTheme';
 
 function App() {
-    // const { theme } = useTheme();
+    const { theme } = useTheme();
     return (
         <ArweaveProvider>
             <ArweaveWalletKit
@@ -39,7 +39,8 @@ function App() {
                 }}
                 theme={{
                     radius: 'default',
-                    displayTheme: 'light',
+                    displayTheme: theme,
+                    // displayTheme: 'light',
                     accent: { r: 162, g: 115, b: 242 },
                 }}
             >
