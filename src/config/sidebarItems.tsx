@@ -7,6 +7,8 @@ import { DryRunAOMessage } from '../components/DryRunAOMessage';
 import { BatchTest } from '../components/BatchTest';
 import { GraphQLTest } from '../components/GraphQLTest';
 import { SignMessage } from '../components/SignMessage';
+import { Upshot } from '../components/Upshot';
+import { UpshotAdmin } from '../components/UpshotAdmin';
 
 export interface SidebarItemConfig {
     id: string;
@@ -54,6 +56,16 @@ export const sidebarItems: SidebarItemConfig[] = [
         id: 'batch',
         title: 'Test Batch',
         component: <BatchTest />,
+    },
+    {
+        id: 'upshot',
+        title: 'Upshot',
+        component: <Upshot />,
+    },
+    {
+        id: 'upshot-admin',
+        title: 'Upshot Admin',
+        component: <UpshotAdmin />,
     },
     {
         id: 'graphql',
