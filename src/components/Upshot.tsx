@@ -1,60 +1,19 @@
 import { useState } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
-import { emptyTxResult, TxResult } from './TxResult';
-import { message, createDataItemSigner, result } from '@permaweb/aoconnect';
+import { UpshotCategories } from './UpshotCategories';
+import { UpshotEvents } from './UpshotEvents';
+import { UpshotPacks } from './UpshotPacks';
+import { UpshotCards } from './UpshotCards';
 
 export function Upshot() {
-    const [loading, setLoading] = useState(false);
+    const [selectedSection, setSelectedSection] = useState<string | null>(null);
     const [process, setProcess] = useState(
-        'O3BjWD5CooXZep0B1guc4nDLcPQkfsgUCA08THnXUwQ'
+        'bAtS9pAgHBghwg7frBYwy7E4bz2lOjcBw-XN9cqSung'
     );
-    const [categoryName, setCategoryName] = useState('');
-    const [txResult, setTxResult] = useState(emptyTxResult);
-    const [messageResult, setMessageResult] = useState<any>(null);
-
-    const sendAOMessage = async () => {
-        if (!process || !categoryName) return;
-        setLoading(true);
-        try {
-            const msgId = await message({
-                process,
-                tags: [{ name: 'Action', value: 'CreateCategory' }],
-                data: JSON.stringify({
-                    categoryName: categoryName,
-                    status: 'active',
-                }),
-                signer: createDataItemSigner(window.arweaveWallet),
-            });
-            console.log(' | Sent Message Id: ', msgId);
-            setTxResult({
-                txId: msgId,
-                status: `200`,
-                statusMsg: `OK`,
-            });
-        } catch (err) {
-            console.error(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const readResult = async () => {
-        if (!txResult.txId || !process) return;
-        try {
-            const { Messages, Spawns, Output, Error } = await result({
-                message: txResult.txId,
-                process: process,
-            });
-            setMessageResult({ Messages, Spawns, Output, Error });
-            console.log('Message Result:', { Messages, Spawns, Output, Error });
-        } catch (err) {
-            console.error(err);
-        }
-    };
 
     return (
-        <div className="flex w-full flex-col items-start justify-between gap-2">
+        <div className="flex w-full flex-col items-start justify-between gap-4">
             <div className="flex w-full items-center justify-between">
                 <div className="flex items-center gap-1">
                     Process ID:&nbsp;
@@ -67,40 +26,49 @@ export function Upshot() {
                     />
                 </div>
             </div>
-            <div className="flex w-full items-center justify-between">
-                <div className="flex items-center gap-1">
-                    Category Name:&nbsp;
-                    <Input
-                        type="text"
-                        placeholder="Category Name"
-                        value={categoryName}
-                        onChange={(e) => setCategoryName(e.target.value)}
-                        className="w-full"
-                    />
-                </div>
+
+            <div className="flex w-full flex-wrap gap-2">
                 <Button
-                    onClick={sendAOMessage}
-                    disabled={!process || !categoryName || loading}
+                    onClick={() => setSelectedSection('categories')}
+                    className={
+                        selectedSection === 'categories' ? 'bg-blue-600' : ''
+                    }
                 >
-                    Create Category
+                    Categories
+                </Button>
+                <Button
+                    onClick={() => setSelectedSection('events')}
+                    className={
+                        selectedSection === 'events' ? 'bg-blue-600' : ''
+                    }
+                >
+                    Events
+                </Button>
+                <Button
+                    onClick={() => setSelectedSection('packs')}
+                    className={selectedSection === 'packs' ? 'bg-blue-600' : ''}
+                >
+                    Packs
+                </Button>
+                <Button
+                    onClick={() => setSelectedSection('cards')}
+                    className={selectedSection === 'cards' ? 'bg-blue-600' : ''}
+                >
+                    Cards
                 </Button>
             </div>
-            {txResult.status && (
-                <div className="flex w-full flex-col gap-2">
-                    <TxResult txResult={{ ...txResult, aoResult: true }} />
-                    <Button
-                        onClick={readResult}
-                        disabled={!txResult.txId || loading}
-                    >
-                        Read Result
-                    </Button>
-                    {messageResult && (
-                        <pre className="rounded p-2">
-                            {JSON.stringify(messageResult, null, 2)}
-                        </pre>
-                    )}
-                </div>
-            )}
+
+            <div className="w-full border-t pt-4">
+                {selectedSection === 'categories' && <UpshotCategories />}
+                {selectedSection === 'events' && <UpshotEvents />}
+                {selectedSection === 'packs' && <UpshotPacks />}
+                {selectedSection === 'cards' && <UpshotCards />}
+                {!selectedSection && (
+                    <div className="p-8 text-center text-gray-500">
+                        Select a section above to manage Upshot content
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

@@ -9,6 +9,10 @@ import { GraphQLTest } from '../components/GraphQLTest';
 import { SignMessage } from '../components/SignMessage';
 import { Upshot } from '../components/Upshot';
 import { UpshotAdmin } from '../components/UpshotAdmin';
+import { UpshotCategories } from '../components/UpshotCategories';
+import { UpshotEvents } from '../components/UpshotEvents';
+import { UpshotPacks } from '../components/UpshotPacks';
+import { UpshotCards } from '../components/UpshotCards';
 
 export interface SidebarItemConfig {
     id: string;
