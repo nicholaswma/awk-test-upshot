@@ -2,15 +2,11 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
 import { emptyTxResult, TxResult } from './TxResult';
-import { emptyDryRunResult, DryRunResult } from './DryRunResult';
-import {
-    message,
-    createDataItemSigner,
-    result,
-    dryrun
-} from '@permaweb/aoconnect';
+import { useArweave } from '../hooks/useArweave';
+import { message, createDataItemSigner, result } from '@permaweb/aoconnect';
 
 export function UpshotEvents() {
+    const { ao } = useArweave();
     const [loading, setLoading] = useState(false);
     const [process, setProcess] = useState(
         'bAtS9pAgHBghwg7frBYwy7E4bz2lOjcBw-XN9cqSung'
@@ -61,20 +57,18 @@ export function UpshotEvents() {
     };
 
     const readListEvents = async () => {
-        if (!process) return;
+        if (!process || !ao) return;
         setLoading(true);
         try {
-            // Use dryrun instead of sending a message
-            const dryRunResult = await dryrun({
+            const dryRunResult = await ao.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'ListEvents' }],
                 data: JSON.stringify({}),
                 signer: createDataItemSigner(window.arweaveWallet),
             });
-            
+
             console.log('Dry Run Result:', dryRunResult);
-            
-            // Extract events from the dry run result
+
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
                 const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
                 setListEventsResult(parsedData.events);
@@ -87,11 +81,10 @@ export function UpshotEvents() {
     };
 
     const readCardsByEvent = async () => {
-        if (!process || !eventIdForCards) return;
+        if (!process || !eventIdForCards || !ao) return;
         setLoading(true);
         try {
-            // Use dryrun instead of sending a message
-            const dryRunResult = await dryrun({
+            const dryRunResult = await ao.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'GetCardsByEvent' }],
                 data: JSON.stringify({
@@ -99,10 +92,9 @@ export function UpshotEvents() {
                 }),
                 signer: createDataItemSigner(window.arweaveWallet),
             });
-            
+
             console.log('Dry Run Result:', dryRunResult);
-            
-            // Extract cards from the dry run result
+
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
                 const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
                 setCardsByEventResult(parsedData.cards);
@@ -116,15 +108,17 @@ export function UpshotEvents() {
 
     const populateEditForm = (event: any) => {
         if (!event) return;
-        
+
         setEditEventId(event.id.toString());
         setEditEventName(event.event_name || '');
-        setEditEventCategoryIds(event.category_ids ? event.category_ids.join(',') : '');
+        setEditEventCategoryIds(
+            event.category_ids ? event.category_ids.join(',') : ''
+        );
         setEditEventImage(event.image || '');
         setEditEventDescription(event.description || '');
         setEditEventRules(event.rules || '');
         setEditEventStatus(event.status || 'active');
-        
+
         // Convert timestamp to ISO string for datetime-local input
         if (event.event_date) {
             const date = new Date(event.event_date * 1000);
@@ -132,10 +126,10 @@ export function UpshotEvents() {
         } else {
             setEditEventDate('');
         }
-        
+
         setEditEventOutcomes(event.outcomes ? event.outcomes.join(', ') : '');
         setEditEventWinningOutcome(event.winning_outcome || '');
-        
+
         setShowEditEvent(true);
     };
 
@@ -173,7 +167,7 @@ export function UpshotEvents() {
                 winning_outcome: null,
             });
 
-            const msgId = await message({
+            const msgId = await ao?.message({
                 process,
                 tags: [{ name: 'Action', value: 'CreateEvent' }],
                 data: JSON.stringify({
@@ -214,25 +208,25 @@ export function UpshotEvents() {
             if (editEventCategoryIds) {
                 data.category_ids = editEventCategoryIds
                     .split(',')
-                    .map(id => parseInt(id.trim()));
+                    .map((id) => parseInt(id.trim()));
             }
             if (editEventImage) data.image = editEventImage;
             if (editEventDescription) data.description = editEventDescription;
             if (editEventRules) data.rules = editEventRules;
             if (editEventStatus) data.status = editEventStatus;
-            
+
             if (editEventDate) {
                 data.event_date = Math.floor(
                     new Date(editEventDate).getTime() / 1000
                 );
             }
-            
+
             if (editEventOutcomes) {
                 data.outcomes = editEventOutcomes
                     .split(',')
-                    .map(outcome => outcome.trim());
+                    .map((outcome) => outcome.trim());
             }
-            
+
             if (editEventWinningOutcome) {
                 data.winning_outcome = editEventWinningOutcome;
             }
@@ -417,13 +411,11 @@ export function UpshotEvents() {
                     </>
                 )}
             </div>
-            
+
             <div className="flex w-full flex-col gap-4 border-t pt-4">
                 <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold">Edit Event</h3>
-                    <Button
-                        onClick={() => setShowEditEvent(!showEditEvent)}
-                    >
+                    <Button onClick={() => setShowEditEvent(!showEditEvent)}>
                         {showEditEvent ? 'Hide' : 'Show'}
                     </Button>
                 </div>
@@ -436,9 +428,14 @@ export function UpshotEvents() {
                                     value={editEventId}
                                     onChange={(e) => {
                                         setEditEventId(e.target.value);
-                                        if (e.target.value && listEventsResult) {
+                                        if (
+                                            e.target.value &&
+                                            listEventsResult
+                                        ) {
                                             const event = listEventsResult.find(
-                                                (ev: any) => ev.id.toString() === e.target.value
+                                                (ev: any) =>
+                                                    ev.id.toString() ===
+                                                    e.target.value
                                             );
                                             if (event) {
                                                 populateEditForm(event);
@@ -581,7 +578,9 @@ export function UpshotEvents() {
                                     placeholder="Leave empty if not resolved"
                                     value={editEventWinningOutcome}
                                     onChange={(e) =>
-                                        setEditEventWinningOutcome(e.target.value)
+                                        setEditEventWinningOutcome(
+                                            e.target.value
+                                        )
                                     }
                                     className="w-full"
                                 />
@@ -598,7 +597,7 @@ export function UpshotEvents() {
                     </>
                 )}
             </div>
-            
+
             <div className="flex w-full items-center justify-between">
                 <Button onClick={readListEvents} disabled={!process || loading}>
                     List Events (Dry Run)

@@ -3,14 +3,11 @@ import { Button } from './Button';
 import { Input } from './Input';
 import { emptyTxResult, TxResult } from './TxResult';
 import { emptyDryRunResult, DryRunResult } from './DryRunResult';
-import {
-    message,
-    createDataItemSigner,
-    result,
-    dryrun
-} from '@permaweb/aoconnect';
+import { useArweave } from '../hooks/useArweave';
+import { message, createDataItemSigner, result } from '@permaweb/aoconnect';
 
 export function UpshotCategories() {
+    const { arweave, ao } = useArweave();
     const [loading, setLoading] = useState(false);
     const [process, setProcess] = useState(
         'bAtS9pAgHBghwg7frBYwy7E4bz2lOjcBw-XN9cqSung'
@@ -74,20 +71,18 @@ export function UpshotCategories() {
     };
 
     const readListCategories = async () => {
-        if (!process) return;
+        if (!process || !ao) return;
         setLoading(true);
         try {
-            // Use dryrun instead of sending a message
-            const dryRunResult = await dryrun({
+            const dryRunResult = await ao.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'ListCategories' }],
                 data: JSON.stringify({}),
                 signer: createDataItemSigner(window.arweaveWallet),
             });
-            
+
             console.log('Dry Run Result:', dryRunResult);
-            
-            // Extract categories from the dry run result
+
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
                 const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
                 setListCategoriesResult(parsedData.categories);
@@ -137,7 +132,7 @@ export function UpshotCategories() {
             if (editStatus) data.status = editStatus;
             if (editGradient) data.color_gradient = editGradient;
 
-            const msgId = await message({
+            const msgId = await ao?.message({
                 process,
                 tags: [{ name: 'Action', value: 'EditCategory' }],
                 data: JSON.stringify(data),

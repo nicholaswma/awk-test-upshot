@@ -4,8 +4,10 @@ export const DEFAULT_GATEWAY = {
     protocol: 'https',
 };
 
-export const CU_URL = undefined;
+// export const CU_URL = undefined;
 // export const CU_URL = 'http://localhost:6363';
+export const CU_URL = 'http://ao.upshot.cards:6363';
+export const MU_URL = 'http://ao.upshot.cards:3005';
 
 export const isValidAddress = (addr: string) =>
     /^[a-zA-Z0-9_-]{43}$/.test(addr);
