@@ -13,10 +13,19 @@ export default defineConfig({
         }),
     ],
     server: {
-        cors: {
-            origin: ['http://ao.upshot.cards'],
-            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-            credentials: true,
+        proxy: {
+            '/ao:6363': {
+                target: 'http://ao.upshot.cards:6363',
+                changeOrigin: true,
+                secure: false,
+                rewrite: (path) => path.replace(/^\/ao:6363/, ''),
+            },
+            '/ao:3005': {
+                target: 'http://ao.upshot.cards:3005',
+                changeOrigin: true,
+                secure: false,
+                rewrite: (path) => path.replace(/^\/ao:3005/, ''),
+            },
         },
     },
 });
