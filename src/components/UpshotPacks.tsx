@@ -7,10 +7,12 @@ import {
     message,
     createDataItemSigner,
     result,
-    dryrun
+    dryrun,
 } from '@permaweb/aoconnect';
+import { useArweave } from '../hooks/useArweave';
 
 export function UpshotPacks() {
+    const { ao } = useArweave();
     const [loading, setLoading] = useState(false);
     const [process, setProcess] = useState(
         'bAtS9pAgHBghwg7frBYwy7E4bz2lOjcBw-XN9cqSung'
@@ -44,16 +46,15 @@ export function UpshotPacks() {
         if (!process) return;
         setLoading(true);
         try {
-            // Use dryrun instead of sending a message
-            const dryRunResult = await dryrun({
+            const dryRunResult = await ao?.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'ListPacks' }],
                 data: JSON.stringify({}),
                 signer: createDataItemSigner(window.arweaveWallet),
             });
-            
+
             console.log('Dry Run Result:', dryRunResult);
-            
+
             // Extract packs from the dry run result
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
                 const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
@@ -70,7 +71,7 @@ export function UpshotPacks() {
         if (!process || !packName) return;
         setLoading(true);
         try {
-            const msgId = await message({
+            const msgId = await ao?.message({
                 process,
                 tags: [{ name: 'Action', value: 'CreatePack' }],
                 data: JSON.stringify({

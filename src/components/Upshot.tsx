@@ -8,25 +8,9 @@ import { UpshotCards } from './UpshotCards';
 
 export function Upshot() {
     const [selectedSection, setSelectedSection] = useState<string | null>(null);
-    const [process, setProcess] = useState(
-        'bAtS9pAgHBghwg7frBYwy7E4bz2lOjcBw-XN9cqSung'
-    );
 
     return (
         <div className="flex w-full flex-col items-start justify-between gap-4">
-            <div className="flex w-full items-center justify-between">
-                <div className="flex items-center gap-1">
-                    Process ID:&nbsp;
-                    <Input
-                        type="text"
-                        placeholder="AO Process ID"
-                        value={process}
-                        onChange={(e) => setProcess(e.target.value)}
-                        className="w-80"
-                    />
-                </div>
-            </div>
-
             <div className="flex w-full flex-wrap gap-2">
                 <Button
                     onClick={() => setSelectedSection('categories')}

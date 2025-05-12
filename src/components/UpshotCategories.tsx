@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
 import { emptyTxResult, TxResult } from './TxResult';
-import { emptyDryRunResult, DryRunResult } from './DryRunResult';
 import { useArweave } from '../hooks/useArweave';
 import { message, createDataItemSigner, result } from '@permaweb/aoconnect';
 
 export function UpshotCategories() {
-    const { arweave, ao } = useArweave();
+    const { ao } = useArweave();
     const [loading, setLoading] = useState(false);
     const [process, setProcess] = useState(
         'bAtS9pAgHBghwg7frBYwy7E4bz2lOjcBw-XN9cqSung'
