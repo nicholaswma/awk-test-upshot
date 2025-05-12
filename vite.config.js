@@ -12,4 +12,11 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        cors: {
+            origin: ['http://ao.upshot.cards'],
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+            credentials: true,
+        },
+    },
 });
