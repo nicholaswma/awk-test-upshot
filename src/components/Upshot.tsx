@@ -6,6 +6,7 @@ import { UpshotEvents } from './UpshotEvents';
 import { UpshotPacks } from './UpshotPacks';
 import { UpshotCards } from './UpshotCards';
 import { UpshotOwnedPacks } from './UpshotOwnedPacks';
+import { UpshotBuyPack } from './UpshotBuyPack';
 
 export function Upshot() {
     const [selectedSection, setSelectedSection] = useState<string | null>(null);
@@ -49,6 +50,14 @@ export function Upshot() {
                 >
                     Owned Packs
                 </Button>
+                <Button
+                    onClick={() => setSelectedSection('buy-pack')}
+                    className={
+                        selectedSection === 'buy-pack' ? 'bg-blue-600' : ''
+                    }
+                >
+                    Buy Pack
+                </Button>
             </div>
 
             <div className="w-full border-t pt-4">
@@ -57,6 +66,7 @@ export function Upshot() {
                 {selectedSection === 'packs' && <UpshotPacks />}
                 {selectedSection === 'cards' && <UpshotCards />}
                 {selectedSection === 'owned-packs' && <UpshotOwnedPacks />}
+                {selectedSection === 'buy-pack' && <UpshotBuyPack />}
                 {!selectedSection && (
                     <div className="p-8 text-center text-gray-500">
                         Select a section above to manage Upshot content
