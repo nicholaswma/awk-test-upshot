@@ -135,11 +135,11 @@ export function UpshotEvents() {
             console.log('Outcomes format issue:', event.outcomes);
             // Try to handle the case where outcomes might be an object or string
             try {
-                const outcomesArray = Array.isArray(event.outcomes) 
-                    ? event.outcomes 
-                    : typeof event.outcomes === 'string' 
-                        ? event.outcomes.split(',') 
-                        : Object.values(event.outcomes);
+                const outcomesArray = Array.isArray(event.outcomes)
+                    ? event.outcomes
+                    : typeof event.outcomes === 'string'
+                      ? event.outcomes.split(',')
+                      : Object.values(event.outcomes);
                 setEditEventOutcomes(outcomesArray.join(', '));
             } catch (err) {
                 console.error('Error processing outcomes:', err);
@@ -148,9 +148,12 @@ export function UpshotEvents() {
         } else {
             setEditEventOutcomes('');
         }
-        
+
         // Handle winning outcome (could be ID number or null)
-        if (event.winning_outcome !== null && event.winning_outcome !== undefined) {
+        if (
+            event.winning_outcome !== null &&
+            event.winning_outcome !== undefined
+        ) {
             setEditEventWinningOutcome(event.winning_outcome.toString());
         } else {
             setEditEventWinningOutcome('');
@@ -249,12 +252,16 @@ export function UpshotEvents() {
 
             if (editEventOutcomes) {
                 // Ensure we're handling outcomes as a proper array of strings
-                const outcomeStrings = typeof editEventOutcomes === 'string' 
-                    ? editEventOutcomes.split(',').map(o => o.trim()).filter(o => o !== '') 
-                    : Array.isArray(editEventOutcomes) 
-                        ? editEventOutcomes 
-                        : [];
-                        
+                const outcomeStrings =
+                    typeof editEventOutcomes === 'string'
+                        ? editEventOutcomes
+                              .split(',')
+                              .map((o) => o.trim())
+                              .filter((o) => o !== '')
+                        : Array.isArray(editEventOutcomes)
+                          ? editEventOutcomes
+                          : [];
+
                 if (outcomeStrings.length > 0) {
                     data.outcomes = outcomeStrings;
                 }
@@ -263,12 +270,14 @@ export function UpshotEvents() {
             if (editEventWinningOutcome) {
                 // Convert to number if it's a numeric string
                 const winningOutcomeNum = parseInt(editEventWinningOutcome);
-                data.winning_outcome = !isNaN(winningOutcomeNum) ? winningOutcomeNum : editEventWinningOutcome;
+                data.winning_outcome = !isNaN(winningOutcomeNum)
+                    ? winningOutcomeNum
+                    : editEventWinningOutcome;
             }
 
             console.log('Edit event data:', data);
 
-            const msgId = await ao.message({
+            const msgId = await ao?.message({
                 process,
                 tags: [{ name: 'Action', value: 'EditEvent' }],
                 data: JSON.stringify(data),
@@ -286,7 +295,7 @@ export function UpshotEvents() {
             setLoading(false);
         }
     };
-    
+
     const deleteEvent = async () => {
         if (!process || !deleteEventId) return;
         setLoading(true);
@@ -686,7 +695,7 @@ export function UpshotEvents() {
                     Delete Event
                 </Button>
             </div>
-            
+
             <div className="flex w-full items-center justify-between">
                 <div className="flex items-center gap-1">
                     Event ID for Cards:&nbsp;
