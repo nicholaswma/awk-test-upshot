@@ -28,6 +28,7 @@ export function UpshotCards() {
     const [cardDescription, setCardDescription] = useState('');
     const [cardMaxSupply, setCardMaxSupply] = useState('');
     const [cardNeverReduceSupply, setCardNeverReduceSupply] = useState(false);
+    const [filterCardId, setFilterCardId] = useState('');
 
     const readResult = async () => {
         if (!txResult.txId || !process) return;
@@ -47,17 +48,25 @@ export function UpshotCards() {
         if (!process) return;
         setLoading(true);
         try {
-            // Use dryrun instead of sending a message
+            const filters: any = {};
+            if (filterCardId) {
+                filters.id = parseInt(filterCardId);
+            }
+
             const dryRunResult = await ao?.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'ListCards' }],
-                data: JSON.stringify({}),
+                data: JSON.stringify({
+                    filters,
+                    page: 1,
+                    pageSize: 10,
+                    sortBy: '-id',
+                }),
                 signer: createDataItemSigner(window.arweaveWallet),
             });
 
             console.log('Dry Run Result:', dryRunResult);
 
-            // Extract cards from the dry run result
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
                 const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
                 setListCardsResult(parsedData.cards);
@@ -245,9 +254,21 @@ export function UpshotCards() {
                 )}
             </div>
             <div className="flex w-full items-center justify-between">
-                <Button onClick={readListCards} disabled={!process || loading}>
-                    List Cards (Dry Run)
-                </Button>
+                <div className="flex items-center gap-2">
+                    <Input
+                        type="number"
+                        placeholder="Filter by Card ID"
+                        value={filterCardId}
+                        onChange={(e) => setFilterCardId(e.target.value)}
+                        className="w-40"
+                    />
+                    <Button
+                        onClick={readListCards}
+                        disabled={!process || loading}
+                    >
+                        List Cards (Dry Run)
+                    </Button>
+                </div>
             </div>
             {listCardsResult && (
                 <pre className="rounded p-2">

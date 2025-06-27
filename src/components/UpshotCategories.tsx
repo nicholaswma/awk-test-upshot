@@ -69,6 +69,55 @@ export function UpshotCategories() {
         }
     };
 
+    const readResultByTx = async (txId: string) => {
+        if (!txId || !process) return;
+        try {
+            const { Messages, Spawns, Output, Error } = await result({
+                message: txId,
+                process: process,
+            });
+
+            // Parse and display Data from Messages
+            if (Messages && Messages.length > 0) {
+                const parsedData = Messages.map((msg) => {
+                    try {
+                        return {
+                            ...msg,
+                            Data: msg.Data ? JSON.parse(msg.Data) : null,
+                        };
+                    } catch (e) {
+                        return msg;
+                    }
+                });
+                setMessageResult({
+                    Messages: parsedData,
+                    Spawns,
+                    Output,
+                    Error,
+                });
+                console.log('Message Result:', {
+                    Messages: parsedData,
+                    Spawns,
+                    Output,
+                    Error,
+                });
+                return { Messages: parsedData, Spawns, Output, Error };
+            } else {
+                setMessageResult({ Messages, Spawns, Output, Error });
+                console.log('Message Result:', {
+                    Messages,
+                    Spawns,
+                    Output,
+                    Error,
+                });
+                return { Messages, Spawns, Output, Error };
+            }
+        } catch (err) {
+            console.error(err);
+            return null;
+        }
+    };
+
     const readListCategories = async () => {
         if (!process || !ao) return;
         setLoading(true);
@@ -418,6 +467,34 @@ export function UpshotCategories() {
                     )}
                 </div>
             )}
+            <div className="flex w-full flex-col gap-4 border-t pt-4">
+                <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-bold">Read Result by TX</h3>
+                </div>
+                <div className="flex w-full items-center justify-between">
+                    <div className="flex items-center gap-1">
+                        Transaction ID:&nbsp;
+                        <Input
+                            type="text"
+                            placeholder="Enter Transaction ID"
+                            value={txResult.txId}
+                            onChange={(e) =>
+                                setTxResult({
+                                    ...txResult,
+                                    txId: e.target.value,
+                                })
+                            }
+                            className="w-full"
+                        />
+                    </div>
+                    <Button
+                        onClick={() => readResultByTx(txResult.txId)}
+                        disabled={!txResult.txId || loading}
+                    >
+                        Read Result
+                    </Button>
+                </div>
+            </div>
         </div>
     );
 }
