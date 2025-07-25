@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
 import { useArweave } from '../hooks/useArweave';
@@ -52,7 +52,6 @@ export function UpshotOwnedPacks() {
                 data: JSON.stringify({
                     owner: addressToUse,
                 }),
-                signer: createDataItemSigner(window.arweaveWallet),
             });
 
             console.log('Get Owned Packs - Dry Run Result:', dryRunResult);
@@ -130,6 +129,10 @@ export function UpshotOwnedPacks() {
             setCardsLoading(false);
         }
     };
+
+    useEffect(() => {
+        getOwnedPacks();
+    }, [process, connected]);
 
     return (
         <div className="flex w-full flex-col items-start justify-between gap-2">

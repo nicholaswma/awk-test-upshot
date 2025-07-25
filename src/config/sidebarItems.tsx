@@ -13,6 +13,7 @@ import { UpshotCategories } from '../components/UpshotCategories';
 import { UpshotEvents } from '../components/UpshotEvents';
 import { UpshotPacks } from '../components/UpshotPacks';
 import { UpshotCards } from '../components/UpshotCards';
+import { UpshotMintStatus } from '../components/UpshotMintStatus';
 
 export interface SidebarItemConfig {
     id: string;
@@ -70,6 +71,11 @@ export const sidebarItems: SidebarItemConfig[] = [
         id: 'upshot-admin',
         title: 'Upshot Admin',
         component: <UpshotAdmin />,
+    },
+    {
+        id: 'UTD',
+        title: 'UTD',
+        component: <UpshotMintStatus />,
     },
     {
         id: 'graphql',
