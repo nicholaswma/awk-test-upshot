@@ -9,21 +9,21 @@ export function UpshotMintStatus() {
     const [loading, setLoading] = useState(false);
     const [mintStatus, setMintStatus] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
+    const [xAddress, setXAddress] = useState<string>('');
 
     const checkMintStatus = async () => {
-        if (!ao) return;
+        if (!ao || !xAddress.trim()) return;
         setLoading(true);
         setError(null);
         try {
             console.log(' | Checking Mint Status');
-            const userAddress = await window.arweaveWallet.getActiveAddress();
-            console.log(' | User Address: ', userAddress);
+            console.log(' | X-Address: ', xAddress);
             const result = await ao.dryrun({
                 ...createMessage(
                     '1WV-nkLFcoaykJb7ztfScjcBRM6e83BB2dRzr-FjTHQ',
                     [
                         tag('Action', 'Mint-Status'),
-                        tag('X-Address', userAddress),
+                        tag('X-Address', xAddress.trim()),
                     ]
                 ),
                 signer: createDataItemSigner(window.arweaveWallet),
@@ -53,7 +53,27 @@ export function UpshotMintStatus() {
 
     return (
         <div className="flex w-full flex-col items-start justify-between gap-2">
-            <Button onClick={checkMintStatus} disabled={loading}>
+            <div className="w-full">
+                <label
+                    htmlFor="x-address"
+                    className="mb-1 block text-sm font-medium text-white"
+                >
+                    X-Address:
+                </label>
+                <input
+                    id="x-address"
+                    type="text"
+                    value={xAddress}
+                    onChange={(e) => setXAddress(e.target.value)}
+                    placeholder="Enter X-Address"
+                    className="w-full rounded border-2 border-gray-400 bg-white px-3 py-2 text-black placeholder-gray-500 focus:border-blue-500 focus:outline-none"
+                />
+            </div>
+
+            <Button
+                onClick={checkMintStatus}
+                disabled={loading || !xAddress.trim()}
+            >
                 {loading ? 'Checking...' : 'Check Mint Status'}
             </Button>
 
