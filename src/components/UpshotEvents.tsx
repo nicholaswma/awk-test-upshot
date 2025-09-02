@@ -61,6 +61,7 @@ export function UpshotEvents() {
         if (!process || !ao) return;
         setLoading(true);
         try {
+            console.log('Starting dryrun with process:', process);
             const dryRunResult = await ao.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'ListEvents' }],
@@ -71,11 +72,31 @@ export function UpshotEvents() {
             console.log('Dry Run Result:', dryRunResult);
 
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
-                const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
-                setListEventsResult(parsedData.events);
+                try {
+                    const dataString = dryRunResult.Messages[0].Data.trim();
+                    if (dataString) {
+                        const parsedData = JSON.parse(dataString);
+                        setListEventsResult(parsedData.events || parsedData);
+                    } else {
+                        console.log('Empty data string received');
+                        setListEventsResult([]);
+                    }
+                } catch (parseErr) {
+                    console.error('Failed to parse JSON data:', parseErr);
+                    console.log('Raw data:', dryRunResult.Messages[0].Data);
+                    setListEventsResult([]);
+                }
+            } else {
+                console.log('No Messages or Data in dry run result');
+                setListEventsResult([]);
             }
         } catch (err) {
-            console.error(err);
+            console.error('Error in readListEvents:', err);
+            if (err instanceof Error) {
+                console.error('Error message:', err.message);
+                console.error('Error stack:', err.stack);
+            }
+            setListEventsResult([]);
         } finally {
             setLoading(false);
         }
@@ -85,6 +106,12 @@ export function UpshotEvents() {
         if (!process || !eventIdForCards || !ao) return;
         setLoading(true);
         try {
+            console.log(
+                'Starting dryrun for cards with process:',
+                process,
+                'eventId:',
+                eventIdForCards
+            );
             const dryRunResult = await ao.dryrun({
                 process,
                 tags: [{ name: 'Action', value: 'GetCardsByEvent' }],
@@ -97,11 +124,31 @@ export function UpshotEvents() {
             console.log('Dry Run Result:', dryRunResult);
 
             if (dryRunResult.Messages && dryRunResult.Messages[0]?.Data) {
-                const parsedData = JSON.parse(dryRunResult.Messages[0].Data);
-                setCardsByEventResult(parsedData.cards);
+                try {
+                    const dataString = dryRunResult.Messages[0].Data.trim();
+                    if (dataString) {
+                        const parsedData = JSON.parse(dataString);
+                        setCardsByEventResult(parsedData.cards || parsedData);
+                    } else {
+                        console.log('Empty data string received');
+                        setCardsByEventResult([]);
+                    }
+                } catch (parseErr) {
+                    console.error('Failed to parse JSON data:', parseErr);
+                    console.log('Raw data:', dryRunResult.Messages[0].Data);
+                    setCardsByEventResult([]);
+                }
+            } else {
+                console.log('No Messages or Data in dry run result');
+                setCardsByEventResult([]);
             }
         } catch (err) {
-            console.error(err);
+            console.error('Error in readCardsByEvent:', err);
+            if (err instanceof Error) {
+                console.error('Error message:', err.message);
+                console.error('Error stack:', err.stack);
+            }
+            setCardsByEventResult([]);
         } finally {
             setLoading(false);
         }

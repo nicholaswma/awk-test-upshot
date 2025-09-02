@@ -6,7 +6,7 @@ export const DEFAULT_GATEWAY = {
 
 // export const CU_URL = undefined;
 // export const CU_URL = 'http://localhost:6363';
-export const CU_URL = '/ao:6363';
+export const CU_URL = undefined;
 export const MU_URL = '/ao:3005';
 
 export const isValidAddress = (addr: string) =>

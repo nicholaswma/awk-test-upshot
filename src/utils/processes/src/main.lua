@@ -3,6 +3,7 @@ local categoryManager = require("modules.category_manager")
 local packManager = require("modules.pack_manager")
 local eventManager = require("modules.event_manager")
 local cardManager = require("modules.card_manager")
+local leaderboardManager = require("modules.leaderboard_manager")
 local sqlite3 = require("lsqlite3")
 local dbAdmin = require("lib.DbAdmin")
 
@@ -33,6 +34,7 @@ local function initDb(msg)
     {"packs", packManager.initSQL, packManager.initSampleData},
     {"events", eventManager.initSQL, eventManager.initSampleData},
     {"cards", cardManager.initSQL, cardManager.initSampleData},
+    {"leaderboard_stats", leaderboardManager.initSQL, leaderboardManager.initSampleData},
   }
 
   for _, item in ipairs(tables) do
@@ -162,4 +164,13 @@ Handlers.add(
     return action == "CreateCard" or action == "EditCard" or action == "DeleteCard"
   end,
   cardManager.adminActionHandler
+)
+
+-------------------------------------------------------------------------------
+-- Leaderboard Handlers
+-------------------------------------------------------------------------------
+Handlers.add(
+  "ListLeaderboardStatsHandler",
+  Handlers.utils.hasMatchingTag("Action", "ListLeaderboardStats"),
+  leaderboardManager.listLeaderboardStatsHandler
 )

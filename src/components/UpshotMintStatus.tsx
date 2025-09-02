@@ -18,7 +18,7 @@ export function UpshotMintStatus() {
         try {
             console.log(' | Checking Mint Status');
             console.log(' | X-Address: ', xAddress);
-            const result = await ao.dryrun({
+            const result = await ao.message({
                 ...createMessage(
                     '1WV-nkLFcoaykJb7ztfScjcBRM6e83BB2dRzr-FjTHQ',
                     [

@@ -14,6 +14,10 @@ import { UpshotEvents } from '../components/UpshotEvents';
 import { UpshotPacks } from '../components/UpshotPacks';
 import { UpshotCards } from '../components/UpshotCards';
 import { UpshotMintStatus } from '../components/UpshotMintStatus';
+import { LeaderboardStats } from '../components/LeaderboardStats';
+import { FetchUTDBalance } from '../components/FetchUTDBalance';
+import { GetOwnedCards } from '../components/GetOwnedCards';
+import { MintStatusCheck } from '../components/MintStatusCheck';
 
 export interface SidebarItemConfig {
     id: string;
@@ -78,8 +82,28 @@ export const sidebarItems: SidebarItemConfig[] = [
         component: <UpshotMintStatus />,
     },
     {
+        id: 'leaderboard',
+        title: 'Leaderboard Stats',
+        component: <LeaderboardStats />,
+    },
+    {
         id: 'graphql',
         title: 'Test GraphQL',
         component: <GraphQLTest />,
+    },
+    {
+        id: 'fetch-utd-balance',
+        title: 'Fetch UTD Balance',
+        component: <FetchUTDBalance />,
+    },
+    {
+        id: 'get-owned-cards',
+        title: 'Get Owned Cards',
+        component: <GetOwnedCards />,
+    },
+    {
+        id: 'mint-status-check',
+        title: 'Check Mint Status',
+        component: <MintStatusCheck />,
     },
 ];
